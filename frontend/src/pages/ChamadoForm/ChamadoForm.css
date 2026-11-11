@@ -1,0 +1,32 @@
+.form-chamado {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-chamado label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: bold;
+}
+
+.form-chamado input,
+.form-chamado textarea,
+.form-chamado select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.form-botoes {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
