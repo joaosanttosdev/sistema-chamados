@@ -1,0 +1,21 @@
+.tabela-chamados {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.tabela-chamados th,
+.tabela-chamados td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.tabela-chamados th {
+  background-color: #eee;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
