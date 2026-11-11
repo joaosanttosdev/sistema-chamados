@@ -1,5 +1,29 @@
 const Chamado = require("../models/Chamado");
 
+const CAMPOS = [
+  "cha_titulo",
+  "cha_descricao",
+  "cha_solicitante",
+  "cha_setor",
+  "cha_prioridade",
+  "cha_status",
+];
+
+function extrairCampos(body = {}) {
+  const dados = {};
+  for (const campo of CAMPOS) {
+    if (body[campo] !== undefined) dados[campo] = body[campo];
+  }
+  return dados;
+}
+
+function tratarErro(res, erro) {
+  if (erro.name === "SequelizeValidationError") {
+    return res.status(400).json({ erro: erro.errors.map((e) => e.message) });
+  }
+  res.status(500).json({ erro: erro.message });
+}
+
 async function listar(req, res) {
   try {
     const chamados = await Chamado.findAll({
@@ -8,7 +32,7 @@ async function listar(req, res) {
 
     res.json(chamados);
   } catch (erro) {
-    res.status(500).json({ erro: erro.message });
+    tratarErro(res, erro);
   }
 }
 
@@ -22,24 +46,17 @@ async function buscar(req, res) {
 
     res.json(chamado);
   } catch (erro) {
-    res.status(500).json({ erro: erro.message });
+    tratarErro(res, erro);
   }
 }
 
 async function inserir(req, res) {
   try {
-    const chamado = await Chamado.create({
-      cha_titulo: req.body.cha_titulo,
-      cha_descricao: req.body.cha_descricao,
-      cha_solicitante: req.body.cha_solicitante,
-      cha_setor: req.body.cha_setor,
-      cha_prioridade: req.body.cha_prioridade,
-      cha_status: req.body.cha_status,
-    });
+    const chamado = await Chamado.create(extrairCampos(req.body));
 
     res.status(201).json(chamado);
   } catch (erro) {
-    res.status(500).json({ erro: erro.message });
+    tratarErro(res, erro);
   }
 }
 
@@ -51,18 +68,11 @@ async function atualizar(req, res) {
       return res.status(404).json({ mensagem: "Chamado não encontrado" });
     }
 
-    await chamado.update({
-      cha_titulo: req.body.cha_titulo,
-      cha_descricao: req.body.cha_descricao,
-      cha_solicitante: req.body.cha_solicitante,
-      cha_setor: req.body.cha_setor,
-      cha_prioridade: req.body.cha_prioridade,
-      cha_status: req.body.cha_status,
-    });
+    await chamado.update(extrairCampos(req.body));
 
     res.json(chamado);
   } catch (erro) {
-    res.status(500).json({ erro: erro.message });
+    tratarErro(res, erro);
   }
 }
 
@@ -80,7 +90,7 @@ async function excluir(req, res) {
       mensagem: "Chamado excluído com sucesso",
     });
   } catch (erro) {
-    res.status(500).json({ erro: erro.message });
+    tratarErro(res, erro);
   }
 }
 
