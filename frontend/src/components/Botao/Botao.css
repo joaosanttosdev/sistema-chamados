@@ -1,20 +1,26 @@
 .botao {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 14px;
+  background-color: #d4d0c8;
+  color: #000;
+  border: 3px outset #ffffff;
+  padding: 6px 16px;
   cursor: pointer;
 }
 
 .botao:hover {
-  opacity: 0.8;
+  background-color: #ffff99;
+}
+
+.botao:active {
+  border-style: inset;
 }
 
 .botao.perigo {
-  background-color: #c0392b;
+  background-color: #ff6666;
+  font-weight: bold;
 }
 
 .botao.secundario {
-  background-color: #999;
+  background-color: #a0a0a0;
 }

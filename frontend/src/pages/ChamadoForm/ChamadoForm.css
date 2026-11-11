@@ -1,28 +1,35 @@
 .form-chamado {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  background-color: white;
+  gap: 12px;
+  background-color: #d4d0c8;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: 4px groove #ffffff;
 }
 
 .form-chamado label {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   font-weight: bold;
+  color: #000080;
 }
 
 .form-chamado input,
 .form-chamado textarea,
 .form-chamado select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: Arial, sans-serif;
+  padding: 6px;
+  border: 3px inset #888888;
+  background-color: #ffffff;
+  font-family: "Courier New", monospace;
   font-size: 14px;
+}
+
+.form-chamado input:focus,
+.form-chamado textarea:focus,
+.form-chamado select:focus {
+  background-color: #ffffcc;
+  outline: 2px dotted #ff0000;
 }
 
 .form-botoes {

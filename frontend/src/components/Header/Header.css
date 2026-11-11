@@ -1,27 +1,44 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  background-color: #333;
-  color: white;
-  padding: 16px 24px;
+  max-width: 900px;
+  margin: 16px auto 0;
+  text-align: center;
+  background-color: #000;
+  border: 4px ridge #00ffff;
+  padding: 12px;
 }
 
 .header h1 {
-  font-size: 20px;
+  margin: 0;
+  font-size: 38px;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, red, orange, yellow, lime, cyan, magenta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(3px 3px 0 #0000aa);
+}
+
+.header-letreiro {
+  color: #00ff00;
+  background-color: #000;
+  border-top: 2px dashed #00ff00;
+  border-bottom: 2px dashed #00ff00;
+  margin: 8px 0;
+  padding: 4px 0;
+  font-family: "Courier New", monospace;
 }
 
 .header nav {
-  color: #888;
+  color: #ffffff;
+  margin-top: 8px;
 }
 
 .header a {
-  color: white;
-  text-decoration: none;
+  color: #00ffff;
+  font-weight: bold;
 }
 
-.header a:hover {
-  text-decoration: underline;
+.header a:visited {
+  color: #ff99ff;
 }

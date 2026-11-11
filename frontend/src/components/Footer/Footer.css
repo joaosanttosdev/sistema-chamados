@@ -1,7 +1,28 @@
 .footer {
+  max-width: 900px;
+  margin: 0 auto 16px;
   text-align: center;
-  padding: 16px;
-  color: #777;
-  font-size: 14px;
-  border-top: 1px solid #ddd;
+  padding: 12px;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.footer p {
+  margin: 6px 0;
+}
+
+.footer-contador {
+  display: inline-block;
+  background-color: #000;
+  color: #ff0000;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 3px;
+  padding: 2px 8px;
+  border: 2px inset #888;
+}
+
+.footer-piscando {
+  color: #ffff00;
+  animation: piscar 1s steps(1) infinite;
 }
